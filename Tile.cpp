@@ -12,6 +12,14 @@ int Tile::getNum() const {
     return m_number;
 }
 
+bool Tile::operator==(const Tile& tile) const {
+    return m_number == tile.m_number;
+}
+
+bool Tile::operator!=(const Tile& tile) const {
+    return m_number != tile.m_number;
+}
+
 std::ostream &operator<<(std::ostream &out, Tile tile) {
     if (tile.m_number == 0) {
         std::cout << "    ";

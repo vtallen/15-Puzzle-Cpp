@@ -14,10 +14,15 @@ Why initiate the board in the solved state? When you buy a physical version of t
 
 
 #include "Tile.h"
+#include "Direction.h"
 
 class Board {
 private:
-    Tile m_game_board[4][4] = {{1, 2, 3, 4},
+    Tile m_game_board[4][4] = {{2, 0, 4, 8},
+                               {13, 9, 14, 15},
+                               {10, 1, 6, 5},
+                               {3, 11, 7, 12}};
+    const Tile m_solved_board[4][4] = {{1, 2, 3, 4},
                                {5, 6, 7, 8},
                                {9, 10, 11, 12},
                                {13, 14, 15, 0}};
@@ -25,6 +30,10 @@ public:
     Board() = default;
 
     friend std::ostream& operator<<(std::ostream& out, Board board);
+
+    bool moveTile(Direction direction);
+    void shuffle();
+    bool isSolved();
 };
 
 

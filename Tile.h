@@ -10,9 +10,12 @@ private:
 public:
     Tile(int number) : m_number{number}, m_is_missing_tile{(number == 0)} {} //NOLINT
 
+    bool operator==(const Tile& tile) const;
+    bool operator!=(const Tile& tile) const;
+    friend std::ostream& operator<<(std::ostream& out, Tile tile);
+
     bool isEmpty() const;
     int getNum() const;
-    friend std::ostream& operator<<(std::ostream& out, Tile tile);
 
 };
 
